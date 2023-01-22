@@ -40,7 +40,7 @@ It is an alternative to REST, SOAP, or gRPC.
 
 In this tutorial, we will query the details for a specific book from an online store backend.
 
-This is how to send a GraphQL query to the server to retrieve details for the book with id "book-1":
+This is an example request you can send to a  GraphQL server to retrieve book details:
 
 [,graphql]
 ----
