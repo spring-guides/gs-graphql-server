@@ -234,7 +234,8 @@ public class BookController {
 The `@QueryMapping` annotation binds this method to a query, a field under the Query type.
 The query field is then determined from the method name, `bookById`.
 The query field could also be declared on the annotation.
-Spring for GraphQL uses `RuntimeWiring.Builder` to register the handler method as a `graphql.schema.DataFetcher` for the query field `bookById`.
+
+NOTE: Spring for GraphQL uses `RuntimeWiring.Builder` that registers each such controller method as a GraphQL Java `graphql.schema.DataFetcher` that provides the logic to fetch the data for a query or for any schema field. The Spring Boot starter for GraphQL has auto-config that automates this registration.
 
 In the GraphQL Java engine, `DataFetchingEnvironment` provides access to a map of field-specific argument values.
 Use the `@Argument` annotation to have an argument bound to a target object and injected into the handler method.
