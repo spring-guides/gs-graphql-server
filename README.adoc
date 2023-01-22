@@ -80,8 +80,7 @@ The response is in JSON. For example:
 }
 ----
 
-An important feature of GraphQL is that it is statically typed. The server knows exactly the shape of every object you can query and any client can introspect the server and ask for the schema.
-The schema describes what queries are possible and what fields you can get back.
+An important feature of GraphQL is that it defines a schema language, and that it is statically typed. The server knows exactly what types of objects requests can query and what fields those objects contain. Furthermore, clients can introspect the server to ask for schema details.
 
 NOTE: The word schema in this tutorial refers to a "GraphQL Schema", which is not related to other schemas like "JSON Schema" or "Database Schema".
 
