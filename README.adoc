@@ -40,7 +40,7 @@ It is an alternative to REST, SOAP, or gRPC.
 
 In this tutorial, we will query the details for a specific book from an online store backend.
 
-This is how to send a GraphQL query to the server to retrieve details for the book with id "book-1":
+This is an example request you can send to a  GraphQL server to retrieve book details:
 
 [,graphql]
 ----
@@ -57,13 +57,13 @@ query bookDetails {
 }
 ----
 
-This GraphQL query says:
+This GraphQL request says:
 
-* query a book with a specific id
-* retrieve the id, name, pageCount and author from that book
-* for the author, I want to know the firstName and lastName
+* perform a query for a book with id "book-1"
+* for the book, return id, name, pageCount and author
+* for the author, return firstName and lastName
 
-The response is JSON:
+The response is in JSON. For example:
 
 [,json]
 ----
@@ -80,8 +80,7 @@ The response is JSON:
 }
 ----
 
-An important feature of GraphQL is that it is statically typed. The server knows exactly the shape of every object you can query and any client can introspect the server and ask for the schema.
-The schema describes what queries are possible and what fields you can get back.
+An important feature of GraphQL is that it defines a schema language, and that it is statically typed. The server knows exactly what types of objects requests can query and what fields those objects contain. Furthermore, clients can introspect the server to ask for schema details.
 
 NOTE: The word schema in this tutorial refers to a "GraphQL Schema", which is not related to other schemas like "JSON Schema" or "Database Schema".
 
@@ -113,15 +112,15 @@ We've barely scratched the surface of what's possible with GraphQL.
 Further information can be found on the https://graphql.org/learn/[official GraphQL page].
 
 == Our example API: getting book details
-The main steps of creating a https://docs.spring.io/spring-graphql/docs/current/reference/html/[Spring for GraphQL] service are:
+These are the main steps to create a server with https://docs.spring.io/spring-graphql/docs/current/reference/html/[Spring for GraphQL]:
 
-. Defining a GraphQL Schema
-. Deciding on how the actual data for a query is fetched
+. Define a GraphQL schema
+. Implement the logic to fetch the actual data for a query
 
 Our example app will be a simple API to get details for a specific book. It is not intended to be a comprehensive API.
 
 == Schema
-In your Spring for GraphQL service you initialized earlier, create a directory `src/main/resources/graphql`.
+In your Spring for GraphQL application prepared earlier, create a directory `src/main/resources/graphql`.
 
 Add a new file `schema.graphqls` to `src/main/resources/graphql` with the following content:
 
@@ -145,12 +144,11 @@ type Author {
 }
 ----
 
-This schema defines one top level field (in the type `Query`):  `bookById` which returns the details of a specific book.
+Every GraphQL schema has a top-level `Query` type, and the fields under it are the query operations exposed by the application. Here the schema defines one query called `bookById` that returns the details of a specific book.
 
-It also defines the type `Book` which has the fields: `id`, `name`, `pageCount` and `author`.
-`author` is of type `Author`, which is defined after `Book`.
+It also defines the types `Book` with fields `id`, `name`, `pageCount` and `author`, and the type `Author` with fields `firstName` and `lastName`.
 
-NOTE: The Domain Specific Language used above to describe a schema is called the Schema Definition Language or SDL. See more details in the https://graphql.org/learn/schema/[GraphQL documentation].
+NOTE: The Domain Specific Language used above to describe a schema is called the Schema Definition Language or SDL. For more details, see the https://graphql.org/learn/schema/[GraphQL documentation].
 
 == Source of the data
 
@@ -234,7 +232,8 @@ public class BookController {
 The `@QueryMapping` annotation binds this method to a query, a field under the Query type.
 The query field is then determined from the method name, `bookById`.
 The query field could also be declared on the annotation.
-Spring for GraphQL uses `RuntimeWiring.Builder` to register the handler method as a `graphql.schema.DataFetcher` for the query field `bookById`.
+
+NOTE: Spring for GraphQL uses `RuntimeWiring.Builder` that registers each such controller method as a GraphQL Java `graphql.schema.DataFetcher` that provides the logic to fetch the data for a query or for any schema field. The Spring Boot starter for GraphQL has auto-config that automates this registration.
 
 In the GraphQL Java engine, `DataFetchingEnvironment` provides access to a map of field-specific argument values.
 Use the `@Argument` annotation to have an argument bound to a target object and injected into the handler method.
