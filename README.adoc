@@ -120,7 +120,7 @@ These are the main steps to create a server with https://docs.spring.io/spring-g
 Our example app will be a simple API to get details for a specific book. It is not intended to be a comprehensive API.
 
 == Schema
-In your Spring for GraphQL service you initialized earlier, create a directory `src/main/resources/graphql`.
+In your Spring for GraphQL application prepared earlier, create a directory `src/main/resources/graphql`.
 
 Add a new file `schema.graphqls` to `src/main/resources/graphql` with the following content:
 
