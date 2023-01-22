@@ -57,11 +57,11 @@ query bookDetails {
 }
 ----
 
-This GraphQL query says:
+This GraphQL request says:
 
-* query a book with a specific id
-* retrieve the id, name, pageCount and author from that book
-* for the author, I want to know the firstName and lastName
+* perform a query for a book with id "book-1"
+* for the book, return id, name, pageCount and author
+* for the author, return firstName and lastName
 
 The response is JSON:
 
