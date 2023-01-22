@@ -112,10 +112,10 @@ We've barely scratched the surface of what's possible with GraphQL.
 Further information can be found on the https://graphql.org/learn/[official GraphQL page].
 
 == Our example API: getting book details
-The main steps of creating a https://docs.spring.io/spring-graphql/docs/current/reference/html/[Spring for GraphQL] service are:
+These are the main steps to create a server with https://docs.spring.io/spring-graphql/docs/current/reference/html/[Spring for GraphQL]:
 
-. Defining a GraphQL Schema
-. Deciding on how the actual data for a query is fetched
+. Define a GraphQL schema
+. Implement the logic to fetch the actual data for a query
 
 Our example app will be a simple API to get details for a specific book. It is not intended to be a comprehensive API.
 
