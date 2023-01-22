@@ -63,7 +63,7 @@ This GraphQL request says:
 * for the book, return id, name, pageCount and author
 * for the author, return firstName and lastName
 
-The response is JSON:
+The response is in JSON. For example:
 
 [,json]
 ----
