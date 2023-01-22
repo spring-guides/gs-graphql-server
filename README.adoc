@@ -290,7 +290,7 @@ query bookDetails {
 
 // dz todo: amend link with GitHub direct link
 You should see a response like this.
-image:/graphiQL.png[GraphQL response]
+image:https://raw.githubusercontent.com/spring-guides/graphql-server/main/graphiql.png[GraphQL response]
 
 Congratulations, you have built a GraphQL service and run your first query! With the help of Spring for GraphQL, you were able to achieve this with only a few lines of code.
 
