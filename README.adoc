@@ -146,8 +146,7 @@ type Author {
 
 Every GraphQL schema has a top-level `Query` type, and the fields under it are the query operations exposed by the application. Here the schema defines one query called `bookById` that returns the details of a specific book.
 
-It also defines the type `Book` which has the fields: `id`, `name`, `pageCount` and `author`.
-`author` is of type `Author`, which is defined after `Book`.
+It also defines the types `Book` with fields `id`, `name`, `pageCount` and `author`, and the type `Author` with fields `firstName` and `lastName`.
 
 NOTE: The Domain Specific Language used above to describe a schema is called the Schema Definition Language or SDL. See more details in the https://graphql.org/learn/schema/[GraphQL documentation].
 
