@@ -144,7 +144,7 @@ type Author {
 }
 ----
 
-This schema defines one top level field (in the type `Query`):  `bookById` which returns the details of a specific book.
+Every GraphQL schema has a top-level `Query` type, and the fields under it are the query operations exposed by the application. Here the schema defines one query called `bookById` that returns the details of a specific book.
 
 It also defines the type `Book` which has the fields: `id`, `name`, `pageCount` and `author`.
 `author` is of type `Author`, which is defined after `Book`.
