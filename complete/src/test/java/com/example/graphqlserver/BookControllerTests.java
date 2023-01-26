@@ -6,7 +6,7 @@ import org.springframework.boot.test.autoconfigure.graphql.GraphQlTest;
 import org.springframework.graphql.test.tester.GraphQlTester;
 
 @GraphQlTest(BookController.class)
-public class BookControllerTest {
+public class BookControllerTests {
 
     @Autowired
     private GraphQlTester graphQlTester;
@@ -14,20 +14,8 @@ public class BookControllerTest {
     @Test
     void shouldGetFirstBook() {
         this.graphQlTester
-                .document("""
-                    query bookDetails {
-                      bookById(id: "book-1") {
-                        id
-                        name
-                        pageCount
-                        author {
-                          id
-                          firstName
-                          lastName
-                        }
-                      }
-                    }
-                """)
+				.documentName("bookDetails")
+				.variable("id", "book-1")
                 .execute()
                 .path("bookById")
                 .matchesJson("""
