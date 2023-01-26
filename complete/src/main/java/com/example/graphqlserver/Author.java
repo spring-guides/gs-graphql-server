@@ -12,6 +12,9 @@ public record Author (String id, String firstName, String lastName) {
     );
 
     public static Author getById(String id) {
-        return authors.stream().filter(author -> author.id().equals(id)).findFirst().orElse(null);
+        return authors.stream()
+				.filter(author -> author.id().equals(id))
+				.findFirst()
+				.orElse(null);
     }
 }
