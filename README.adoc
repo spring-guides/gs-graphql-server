@@ -108,8 +108,8 @@ Our example app will be a simple API to get details for a specific book.
 It is not intended to be a comprehensive API.
 
 == Schema
-In your Spring for GraphQL application prepared earlier, create a directory `src/main/resources/graphql`.
-Add a new file `schema.graphqls` to this folder with the following content:
+In your Spring for GraphQL application prepared earlier, add a new file `schema.graphqls`
+to the `src/main/resources/graphql` folder with the following content:
 
 [source,graphql]
 ----
@@ -148,7 +148,7 @@ include::complete/src/main/java/com/example/graphqlserver/Author.java[]
 
 == Adding code to fetch data
 
-Spring for GraphQL provides an https://docs.spring.io/spring-graphql/docs/current/reference/html/#controllers[annotation-based programming model].
+Spring for GraphQL provides an https://docs.spring.io/spring-graphql/reference/controllers.html[annotation-based programming model].
 With controller annotated methods, we can declare how to fetch the data for specific GraphQL fields.
 
 Add the following to `BookController.java` in the main application package, next to `Book` and `Author`:
@@ -176,7 +176,7 @@ The `@SchemaMapping` annotation maps a handler method to a field in the GraphQL 
 The field name defaults to the method name, and the type name defaults to the simple class name of the source/parent object injected into the method.
 In this example, the field defaults to `author` and the type defaults to `Book`.
 
-For more, see the https://docs.spring.io/spring-graphql/docs/current/reference/html/#controllers[documentation for the Spring for GraphQL annotated controller feature].
+For more, see the https://docs.spring.io/spring-graphql/reference/controllers.html[documentation for the Spring for GraphQL annotated controller feature].
 
 That's all the code we need!
 
@@ -229,7 +229,7 @@ Spring for GraphQL provides helpers for GraphQL testing in the `spring-graphql-t
 
 Thoroughly testing a GraphQL service requires tests with different scopes. In this tutorial, we will write a `@GraphQlTest` slice test, which focuses on a single controller.
 There are other helpers to assist with full end-to-end integration tests and focused server side tests.
-For the full details, see the https://docs.spring.io/spring-graphql/docs/current/reference/html/#testing[Spring for GraphQL Testing documentation] and https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.testing.spring-boot-applications.spring-graphql-tests[Auto-configured Spring for GraphQL tests] in the Spring Boot documentation.
+For the full details, see the https://docs.spring.io/spring-graphql/reference/testing.html[Spring for GraphQL Testing documentation] and https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.spring-graphql-tests[Auto-configured Spring for GraphQL tests] in the Spring Boot documentation.
 
 Let's write a controller slice test that verifies the same `bookDetails` query requested in the GraphiQL playground a few moments ago.
 
@@ -255,7 +255,7 @@ The `@GraphQlTest` annotation is useful for writing controller slice tests, whic
 `@GraphQlTest` auto-configures the Spring for GraphQL infrastructure, without any transport nor server being involved.
 Automatic configuration enables us to write tests faster by skipping boilerplate code.
 As this is a focused slice test, only a limited number of beans are scanned including `@Controller` and `RuntimeWiringConfigurer`.
-For the list of scanned beans, see the https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#appendix.test-auto-configuration[documentation].
+For the list of scanned beans, see the https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html#appendix.test-auto-configuration[documentation].
 
 `GraphQlTester` is a contract that declares a common workflow for testing GraphQL requests, independent of transport.
 In our test, we provide a document with `documentName` with the required variables, then `execute` the request.
@@ -273,7 +273,7 @@ The source code for this tutorial can be found on https://github.com/spring-guid
 
 === Documentation
 
-Read the https://docs.spring.io/spring-graphql/docs/current/reference/html/[Spring for GraphQL documentation].
+Read the https://docs.spring.io/spring-graphql/reference/[Spring for GraphQL documentation].
 
 GraphQL Java is the GraphQL engine powering Spring for GraphQL. Read the https://www.graphql-java.com/documentation/getting-started[GraphQL Java documentation].
 
