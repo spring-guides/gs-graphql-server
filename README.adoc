@@ -158,7 +158,7 @@ Add the following to `BookController.java` in the main application package, next
 include::complete/src/main/java/com/example/graphqlserver/BookController.java[]
 ----
 
-By defining a method named `bookById` annotated with `@QuerMapping`, this controller declares how to fetch a `Book` as defined under the Query type.
+By defining a method named `bookById` annotated with `@QueryMapping`, this controller declares how to fetch a `Book` as defined under the Query type.
 The query field is determined from the method name, but can also be declared on the annotation itself.
 
 NOTE: Spring for GraphQL uses `RuntimeWiring.Builder` that registers each such controller method as a GraphQL Java `graphql.schema.DataFetcher`.
