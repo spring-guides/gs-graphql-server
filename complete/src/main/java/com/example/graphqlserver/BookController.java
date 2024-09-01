@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class BookController {
+    //This sample example for GraphQL
     @QueryMapping
     public Book bookById(@Argument String id) {
         return Book.getById(id);
