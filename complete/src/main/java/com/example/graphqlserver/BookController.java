@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BookController {
     @QueryMapping
-    public Book bookById(@Argument String id) {
+    public Book bookById(@Argument("id") String id) {
         return Book.getById(id);
     }
 
