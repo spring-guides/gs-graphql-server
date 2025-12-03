@@ -20,7 +20,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 [[scratch]]
 == Starting with Spring Initializr
 
-If you like, you can use this https://start.spring.io/#!type=maven-project&language=java&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=graphqlserver&name=graphqlserver&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.graphqlserver[pre-populated Spring Initializr link] to load the correct settings.
+If you like, you can use this https://start.spring.io/#!type=gradle-project&language=java&platformVersion=4.0.0&packaging=jar&configurationFileFormat=properties&jvmVersion=17&groupId=com.example&artifactId=graphqlserver&name=graphqlserver&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.graphqlserver&dependencies=web,graphql[pre-populated Spring Initializr link] to load the correct settings.
 Otherwise, continue on to manually set up the Initializr.
 
 To manually initialize the project:
@@ -282,8 +282,7 @@ GraphQL Java is the GraphQL engine powering Spring for GraphQL. Read the https:/
 
 === More Spring for GraphQL examples
 
-See more samples in the
-https://github.com/spring-projects/spring-graphql/tree/1.0.x/samples[1.0.x branch], which will soon be https://github.com/spring-projects/spring-graphql/issues/208[moved into] a separate repository.
+See more samples in the https://github.com/spring-projects/spring-graphql-examples[dedicated repository].
 
 === Stack Overflow questions
 You can raise questions on https://stackoverflow.com/questions/tagged/spring-graphql[Stack Overflow with the spring-graphql] tag.
